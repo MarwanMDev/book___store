@@ -7,16 +7,14 @@ import { LayerComponent } from './admin/layer/layer.component';
 import { AdminModule } from './admin/admin.module';
 
 @NgModule({
-  declarations: [
-   
-  ],
+  declarations: [AppComponent],
   imports: [
     // RouterModule,
     BrowserModule,
     AppRoutingModule,
-    AdminModule
+    AdminModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

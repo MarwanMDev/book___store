@@ -21,32 +21,76 @@ import { AppComponent } from '../app.component';
 import { AdminHeaderComponent } from './admin-header/admin-header.component';
 import { AHeaderComponent } from './a-header/a-header.component';
 import { LayerComponent } from './layer/layer.component';
-
-
-
+import { HttpClientModule } from '@angular/common/http';
 
 // canActivate:[AuthGuard]
 const adminRoutes: Routes = [
   { path: 'home', component: AdminDashboardComponent },
   { path: 'layer', component: LayerComponent },
-  {path:'' , redirectTo:'home-panel' , pathMatch:'full'},
-  {path:'home-panel'  , component: HomePanelComponent},
-  {path:'ebook' , canActivate:[AuthGuard] , component: EBookComponent  },
-  {path:'order' , canActivate:[AuthGuard] ,component : OrderComponent},
-  {path:'add-event' , canActivate:[AuthGuard] ,component: AddEventComponent},
-  {path:'massage',canActivate:[AuthGuard] , component: MassageComponent},
-  {path:'AddCategory',canActivate:[AuthGuard] , component: AddCategoryComponent},
-  {path:'login' , component: LoginComponent},
-  {path:'add-publisher' ,canActivate:[AuthGuard] , component: NewPublisherComponent},
-  {path:'cate' , canActivate:[AuthGuard] ,component:CatageryComponent},
-  {path:'Electronic_Books' , canActivate:[AuthGuard] ,component:AllElectronicBooksComponent},
-  {path:'Paper_Books' ,canActivate:[AuthGuard] , component:AllPaperBooksComponent},
-  {path:'Users' , canActivate:[AuthGuard] ,component:ShowUsersComponent},
-  {path:'Publisher' ,canActivate:[AuthGuard] , component:ShowPublishersComponent},
-  {path:'Admins' , canActivate:[AuthGuard] ,component:ShowAdminsComponent},
+  { path: '', redirectTo: 'home-panel', pathMatch: 'full' },
+  { path: 'home-panel', component: HomePanelComponent },
+  {
+    path: 'ebook',
+    canActivate: [AuthGuard],
+    component: EBookComponent,
+  },
+  {
+    path: 'order',
+    canActivate: [AuthGuard],
+    component: OrderComponent,
+  },
+  {
+    path: 'add-event',
+    canActivate: [AuthGuard],
+    component: AddEventComponent,
+  },
+  {
+    path: 'massage',
+    canActivate: [AuthGuard],
+    component: MassageComponent,
+  },
+  {
+    path: 'AddCategory',
+    canActivate: [AuthGuard],
+    component: AddCategoryComponent,
+  },
+  { path: 'login', component: LoginComponent },
+  {
+    path: 'add-publisher',
+    canActivate: [AuthGuard],
+    component: NewPublisherComponent,
+  },
+  {
+    path: 'cate',
+    canActivate: [AuthGuard],
+    component: CatageryComponent,
+  },
+  {
+    path: 'Electronic_Books',
+    canActivate: [AuthGuard],
+    component: AllElectronicBooksComponent,
+  },
+  {
+    path: 'Paper_Books',
+    canActivate: [AuthGuard],
+    component: AllPaperBooksComponent,
+  },
+  {
+    path: 'Users',
+    canActivate: [AuthGuard],
+    component: ShowUsersComponent,
+  },
+  {
+    path: 'Publisher',
+    canActivate: [AuthGuard],
+    component: ShowPublishersComponent,
+  },
+  {
+    path: 'Admins',
+    canActivate: [AuthGuard],
+    component: ShowAdminsComponent,
+  },
 ];
-
-
 
 @NgModule({
   declarations: [
@@ -68,8 +112,13 @@ const adminRoutes: Routes = [
     ShowPublishersComponent,
     ShowUsersComponent,
   ],
-  imports: [CommonModule, RouterModule.forChild(adminRoutes)],
-  exports :[AdminDashboardComponent,
+  imports: [
+    CommonModule,
+    RouterModule.forChild(adminRoutes),
+    HttpClientModule,
+  ],
+  exports: [
+    AdminDashboardComponent,
     CatageryComponent,
     HomePanelComponent,
     OrderComponent,
@@ -85,6 +134,7 @@ const adminRoutes: Routes = [
     AllPaperBooksComponent,
     ShowAdminsComponent,
     ShowPublishersComponent,
-    ShowUsersComponent,],
+    ShowUsersComponent,
+  ],
 })
-export class AdminModule { }
+export class AdminModule {}
